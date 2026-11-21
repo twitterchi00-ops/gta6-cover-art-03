@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Vice Cover Lab — GTA 6 cover studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls">
+    <h1>Vice Cover Lab</h1>
+    <p class="tag">A GTA 6 cover studio. Pick a photo, set the words, grade it like Vice City.</p>
+    <label>Photo <input id="photo" type="file" accept="image/*"></label>
+    <div class="samples">
+      <button type="button" data-sample="boulevard">Boulevard</button>
+      <button type="button" data-sample="pier">Pier</button>
+    </div>
+    <label>Title <input id="title" type="text" maxlength="40" value="Neon Nights"></label>
+    <label>Subtitle <input id="subtitle" type="text" maxlength="40" value="Leonida • 2026"></label>
+    <fieldset><legend>Layout</legend><div id="layout-picker" class="picker"></div></fieldset>
+    <fieldset><legend>Grade</legend><div id="grade-picker" class="picker"></div></fieldset>
+    <fieldset><legend>Lettering</legend><div id="lettering-picker" class="picker"></div></fieldset>
+    <label>Pan X <input id="panx" type="range" min="-1" max="1" step="0.05" value="0"> <span id="panx-val">0</span></label>
+    <label>Pan Y <input id="pany" type="range" min="-1" max="1" step="0.05" value="0"> <span id="pany-val">0</span></label>
+    <label>Zoom <input id="zoom" type="range" min="1" max="1.6" step="0.05" value="1.2"> <span id="zoom-val">1.2</span></label>
+    <button id="seed" type="button">Shuffle skyline</button>
+    <div class="exports">
+      <button id="export-square" type="button">Export 1080 × 1080</button>
+      <button id="export-portrait" type="button">Export 1080 × 1350</button>
+      <button id="export-wide" type="button">Export 1920 × 1080</button>
+    </div>
+    <p id="status" role="status"></p>
+    <h2>Gallery</h2>
+    <div id="gallery" class="gallery"></div>
+  </section>
+  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

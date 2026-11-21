@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("./fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("./fonts/BarlowCondensed-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #12081f;
+  color: #f5eefc;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+}
+.app {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  gap: 20px;
+  padding: 20px;
+  align-items: start;
+}
+.controls h1 {
+  font-family: "Bebas Neue", "Barlow Condensed", sans-serif;
+  font-size: 44px;
+  letter-spacing: 2px;
+  margin: 0 0 4px;
+  color: #ff2d95;
+}
+.tag { margin: 0 0 14px; color: #cbb3e6; font-size: 17px; }
+label { display: block; margin: 10px 0; font-size: 17px; }
+input[type="text"], input[type="file"] { width: 100%; margin-top: 4px; }
+input[type="text"] {
+  padding: 8px;
+  background: #241534;
+  border: 1px solid #5b3a86;
+  color: #fff;
+  font-size: 17px;
+  font-family: inherit;
+}
+input[type="range"] { width: 70%; vertical-align: middle; }
+fieldset { border: 1px solid #5b3a86; margin: 10px 0; padding: 8px; }
+legend { font-size: 15px; color: #cbb3e6; }
+.picker { display: flex; flex-wrap: wrap; gap: 6px; }
+.picker button, .samples button, .exports button, #seed {
+  background: #241534;
+  color: #f5eefc;
+  border: 1px solid #5b3a86;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+}
+.picker button.active, .samples button:active { background: #ff2d95; border-color: #ff2d95; }
+.exports { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.exports button { background: #ff2d95; border-color: #ff2d95; font-weight: 700; }
+#status { min-height: 1.2em; color: #7ef0ff; }
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.gallery img { width: 100%; display: block; border: 1px solid #5b3a86; }
+#cover {
+  width: min(72vh, 100%);
+  max-width: 720px;
+  justify-self: center;
+  border: 1px solid #5b3a86;
+  background: #1a0b2e;
+}
+/* Screenshot mode: hide the editor, show only the cover. */
+body.shot-cover .controls { display: none; }
+body.shot-cover .app { display: block; padding: 0; }
+body.shot-cover #cover { width: 100%; max-width: none; border: 0; }
+@media (max-width: 800px) {
+  .app { grid-template-columns: 1fr; }
+  #cover { width: 100%; }
+}
